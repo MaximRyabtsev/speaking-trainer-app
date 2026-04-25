@@ -39,7 +39,7 @@ class FfmpegAdapter:
         if quality == "720p":
             cmd += ["-f", "avfoundation", "-framerate", "30", "-video_size", "1280x720", "-i", input_spec, "-c:v", "h264_videotoolbox", "-b:v", "2500k", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(output_path)]
         elif quality == "240p":
-            cmd += ["-f", "avfoundation", "-framerate", "24", "-i", input_spec, "-vf", "scale=-2:240", "-c:v", "h264_videotoolbox", "-b:v", "600k", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "96k", "-movflags", "+faststart", str(output_path)]
+            cmd += ["-f", "avfoundation", "-framerate", "30", "-i", input_spec, "-vf", "scale=-2:240", "-c:v", "h264_videotoolbox", "-b:v", "600k", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "96k", "-movflags", "+faststart", str(output_path)]
         else:
             raise ValueError("Video quality must be '240p' or '720p'.")
         log_file = log_path.open("w", encoding="utf-8")
